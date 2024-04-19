@@ -20,6 +20,7 @@ def main():
             print("Video frame is empty or video processing has been successfully completed.")
             break
         # img = cv2.cvtColor(image_net, cv2.COLOR_BGRA2BGR)
+        im0 = cv2.resize(im0, (2560, 720))
         config = stereoconfig_040_2.stereoCamera()
         map1x, map1y, map2x, map2y, Q = getRectifyTransform(720, 1280, config)
         thread = MyThread(stereo_threading, args=(config, im0, map1x, map1y, map2x, map2y, Q))
